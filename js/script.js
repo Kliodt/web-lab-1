@@ -65,8 +65,6 @@ function resetForm() {
 
 // submit
 function mySubmit() {
-    //let y = document.getElementById("y-input").innerText;
-    //validate all
     if (validateX() && validateY() && validateR()) {
         draw(x, y, r);
         $.ajax({

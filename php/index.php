@@ -11,7 +11,7 @@
             $x = $_POST["x"];
             $y = $_POST["y"];
             $r = $_POST["r"];
-            if (is_numeric($x) && is_numeric($y) && is_numeric($r)) {
+            if (is_numeric($x) && is_numeric($y) && is_numeric($r) && validate($x, $y, $r)) {
                 if (checkHit($x, $y, $r)) {
                     $answer = "попадание";
                 } else {
@@ -45,6 +45,12 @@
 
     function checkCircle($x, $y, $r) {
         return ($x >= 0 && $y >= 0 && $x ** 2 + $y ** 2 <= $r ** 2 / 4);
+    }
+
+    function validate($x, $y, $r) {
+        return ($x==-5 || $x==-4 || $x==-3 || $x==-2 || $x==-1 || $x==0 || $x==1 || $x==2 || $x==3) 
+        && ($r==1 || $r==3 || $r==2 || $r==4 || $r==5) 
+        && $y >= -3 && $y <= 3;
     }
 
 
